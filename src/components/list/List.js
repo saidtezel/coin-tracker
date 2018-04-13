@@ -1,9 +1,10 @@
 import React from 'react';
 import Loading from '../common/Loading';
+import ReactGA from 'react-ga';
 import Table from './Table';
 import Pagination from './Pagination';
 import { handleResponse } from '../../helper';
-import { API_URL } from '../../config'; 
+import { API_URL } from '../../config';
 
 class List extends React.Component {
   constructor() {
@@ -22,6 +23,7 @@ class List extends React.Component {
 
   componentDidMount() {
     this.fetchCurrencies();
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   fetchCurrencies() {

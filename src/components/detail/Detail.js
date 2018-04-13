@@ -1,5 +1,6 @@
 import React from 'react';
 import { API_URL } from '../../config';
+import ReactGA from 'react-ga';
 import { handleResponse, renderPercentChange } from '../../helper.js';
 import Loading from '../common/Loading';
 import './Detail.css';
@@ -21,6 +22,7 @@ class Detail extends React.Component {
 
     // Fetch currency
     this.fetchCurrency(currencyId);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,6 +32,7 @@ class Detail extends React.Component {
       
       // Fetch currency
       this.fetchCurrency(currencyId);
+      ReactGA.pageview(window.location.pathname + window.location.search);
     }
   }
 

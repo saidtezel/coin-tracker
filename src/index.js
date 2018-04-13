@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import { GA_ID } from './ga';
 import Header from './components/common/Header';
 import List from './components/list/List';
 import NotFound from './components/notfound/NotFound';
 import Detail from './components/detail/Detail';
 import './index.css';
+
+ReactGA.initialize('UA-36988843-2');
 
 const App = () => {
   return (
@@ -13,8 +17,8 @@ const App = () => {
       <div>
         <Header />
         <Switch>
-          <Route path={`${process.env.PUBLIC_URL}/`} component={List} exact />
-          <Route path={`${process.env.PUBLIC_URL}/currency/:id`} component={Detail} exact />
+          <Route path={'/'} component={List} exact />
+          <Route path={'/currency/:id'} component={Detail} exact />
           <Route component={NotFound} />
         </Switch>
       </div>
